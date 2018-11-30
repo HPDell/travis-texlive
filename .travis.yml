@@ -7,15 +7,13 @@ addons:
       - p7zip-full
 script:
 - bash download.sh
-#- travis_wait 60 bash prepare_onlyEN.sh
 - travis_wait 60 bash prepare.sh
 deploy:
   provider: releases
-  user: ${GITHUB_USERNAME}
-  password: ${GITHUB_PASSWORD}
+  api_key:
+    secure: $GITHUB_TOKEN
   file:
     - texlive.tar.xz
-#    - texlive_onlyEN.tar.xz
   skip_cleanup: true
   on:
     tags: true
