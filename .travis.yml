@@ -11,7 +11,8 @@ script:
 - travis_wait 60 bash prepare.sh
 deploy:
   provider: releases
-  api_key: ${GITHUB_OAUTH}
+  user: ${GITHUB_USERNAME}
+  password: ${GITHUB_PASSWORD}
   file:
     - texlive.tar.xz
 #    - texlive_onlyEN.tar.xz
